@@ -33,7 +33,7 @@ import org.junit.runners.Parameterized.Parameters;
 public class LongestSubstrWithoutRepeatingChars {
 	private final String inputString;
 	private final int expedtedOutput;
-	private final InnerClass inner = new InnerClass();
+	private final Solution solution = new Solution();
 
 	@Parameters
 	public static Iterable<Object[]> getParameters() {
@@ -50,13 +50,13 @@ public class LongestSubstrWithoutRepeatingChars {
 
 	@Test
 	public void testLongest() {
-		int output = inner.lengthOfLongestSubstring(inputString);
+		int output = solution.lengthOfLongestSubstring(inputString);
 		System.out.printf("Testing input: %2s, expected: %s, calculated: %s%n",
 				inputString, expedtedOutput, output);
 		Assert.assertEquals(expedtedOutput, output);
 	}
 
-	static class InnerClass {
+	static class Solution {
 		public int lengthOfLongestSubstring(String s) {
 			int maxLength = 0;
 			final Map<Character, Integer> map = new HashMap<>(s.length());
